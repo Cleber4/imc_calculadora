@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'IMC Calculadora',
       theme: ThemeData.dark().copyWith(
-        primaryColor: Color(0xFF0A0E21),
+        primaryColor: selectColor[0],
         scaffoldBackgroundColor: Color(0xFF0A0E21),
         // accentColor: Colors.purple,
         // textTheme: TextTheme(body1: TextStyle(color: Colors.white))
