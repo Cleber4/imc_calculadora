@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ContainerCard extends StatelessWidget {
   final Color colour;
 
-  ContainerCard({this.colour});
+  ContainerCard({@required this.colour});
   @override
   Widget build(BuildContext context) {
     return Container(
