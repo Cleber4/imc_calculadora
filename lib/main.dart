@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'IMC Calculadora',
       theme: ThemeData.dark().copyWith(
         primaryColor: selectColor[0],
-        scaffoldBackgroundColor: Color(0xFF0A0E21),
+        scaffoldBackgroundColor: selectColor[0],
         // accentColor: Colors.purple,
         // textTheme: TextTheme(body1: TextStyle(color: Colors.white))
       ),
