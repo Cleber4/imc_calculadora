@@ -12,34 +12,18 @@ const selectColor = [
   Color(0xFF111328),
 ];
 
+enum Gender {
+  male,
+  female,
+}
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  Color maleCardColour = selectColor[4];
-  Color femaleCardColour = selectColor[4];
-
-  void updateColor(int gender) {
-    if (gender == 1) {
-      // Male = 1
-      if (maleCardColour == selectColor[4]) {
-        maleCardColour = selectColor[1];
-        femaleCardColour = selectColor[4];
-      } else {
-        maleCardColour = selectColor[4];
-      }
-    } else if (gender == 2) {
-      // Female = 2
-      if (femaleCardColour == selectColor[4]) {
-        femaleCardColour = selectColor[1];
-        maleCardColour = selectColor[4];
-      } else {
-        femaleCardColour = selectColor[4];
-      }
-    }
-  }
+  Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -54,33 +38,33 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          updateColor(1);
-                        });
-                      },
-                      child: ContainerCard(
-                          colour: maleCardColour,
-                          cardChild: IconContent(
-                            icon: FontAwesomeIcons.mars,
-                            label: 'HOMEM',
-                          )),
-                    ),
+                    child: ContainerCard(
+                        onPress: () {
+                          setState(() {
+                            selectedGender = Gender.male;
+                          });
+                        },
+                        colour: selectedGender == Gender.male
+                            ? selectColor[1]
+                            : selectColor[4],
+                        cardChild: IconContent(
+                          icon: FontAwesomeIcons.mars,
+                          label: 'HOMEM',
+                        )),
                   ),
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
+                    child: ContainerCard(
+                      onPress: () {
                         setState(() {
-                          updateColor(2);
+                          selectedGender = Gender.female;
                         });
                       },
-                      child: ContainerCard(
-                        colour: femaleCardColour,
-                        cardChild: IconContent(
-                          icon: FontAwesomeIcons.venus,
-                          label: 'MULHER',
-                        ),
+                      colour: selectedGender == Gender.female
+                          ? selectColor[1]
+                          : selectColor[4],
+                      cardChild: IconContent(
+                        icon: FontAwesomeIcons.venus,
+                        label: 'MULHER',
                       ),
                     ),
                   ),
