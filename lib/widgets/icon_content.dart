@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:imc_calculadora/views/home_page.dart';
-
-//const labelTextStylle = TextStyle(
-//  fontSize: 18.0,
-//  color: Color(0xFF8D8E98),
-//);
+import 'package:imc_calculadora/controllers/constants.dart';
+//import 'package:imc_calculadora/views/home_page.dart';
 
 class IconContent extends StatelessWidget {
   final IconData icon;
@@ -26,11 +22,11 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label,
-          //style: labelTextStylle,
-          style: TextStyle(
+          style: labelTextStylle[0],
+          /*style: TextStyle(
             fontSize: 18.0,
             color: selectColor[3],
-          ),
+          ),*/
         )
       ],
     );
