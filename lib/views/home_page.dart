@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:imc_calculadora/controllers/constants.dart';
 import 'package:imc_calculadora/widgets/container_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:imc_calculadora/widgets/icon_content.dart';
-
-const bottomContainerHeight = 80.0;
-const selectColor = [
-  Color(0xFF0A0E21),
-  Color(0xFF1D1E33),
-  Color(0xFFEB1555),
-  Color(0xFF8D8E98),
-  Color(0xFF111328),
-];
 
 enum Gender {
   male,
@@ -24,6 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Gender selectedGender;
+  int _height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +67,41 @@ class _HomePageState extends State<HomePage> {
             Expanded(
                 child: ContainerCard(
               colour: selectColor[1],
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'HEIGHT',
+                    style: labelTextStylle[0],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    //textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(_height.toString(), style: labelTextStylle[1]),
+                      Text(
+                        'cm',
+                        style: labelTextStylle[0],
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    //value: height.toDouble(),
+                    value: _height.toDouble(),
+                    min: 120.0,
+                    max: 220.0,
+                    activeColor: selectColor[2],
+                    inactiveColor: selectColor[3],
+                    onChanged: (double newValue) {
+                      setState(() {
+                        _height = newValue.round();
+                        print(newValue);
+                      });
+                    },
+                  )
+                ],
+              ),
             )),
             Expanded(
               child: Row(
