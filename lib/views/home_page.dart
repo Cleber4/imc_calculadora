@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imc_calculadora/controllers/constants.dart';
+import 'package:imc_calculadora/widgets/button_fuction.dart';
 import 'package:imc_calculadora/widgets/container_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:imc_calculadora/widgets/icon_content.dart';
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'HEIGHT',
+                    'ALTURA',
                     style: labelTextStylle[0],
                   ),
                   Row(
@@ -127,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'WEIGHT',
+                            'PESO',
                             style: labelTextStylle[0],
                           ),
                           Text(
@@ -169,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'AGE',
+                            'IDADE',
                             style: labelTextStylle[0],
                           ),
                           Text(
@@ -207,11 +208,11 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Container(
-              color: selectColor[2],
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: bottomContainerHeight,
+            ButtonFunction(
+              onTap: () {
+                Navigator.pushNamed(context, '/result');
+              },
+              buttonTitle: 'CALCULAR',
             )
           ],
         ));
