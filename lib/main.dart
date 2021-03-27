@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imc_calculadora/controllers/constants.dart';
+import 'package:imc_calculadora/views/results_page.dart';
 
 import 'views/home_page.dart';
 
@@ -19,7 +20,12 @@ class MyApp extends StatelessWidget {
         // textTheme: TextTheme(body1: TextStyle(color: Colors.white))
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      //home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/result': (context) => ResultPage(),
+      },
     );
   }
 }
