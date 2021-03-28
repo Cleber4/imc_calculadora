@@ -4,6 +4,14 @@ import 'package:imc_calculadora/widgets/button_fuction.dart';
 import 'package:imc_calculadora/widgets/container_card.dart';
 
 class ResultPage extends StatelessWidget {
+  final String imcResult;
+  final String interpretation;
+  final String textResult;
+
+  ResultPage(
+      {@required this.imcResult,
+      @required this.interpretation,
+      @required this.textResult});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +41,15 @@ class ResultPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'NORMAL',
+                    textResult.toUpperCase(),
                     style: labelTextStylle[4],
                   ),
                   Text(
-                    '18.3',
+                    imcResult,
                     style: labelTextStylle[5],
                   ),
                   Text(
-                    'Seu peso está normal',
+                    interpretation,
                     textAlign: TextAlign.center,
                     style: labelTextStylle[6],
                   ),

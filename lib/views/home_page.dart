@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:imc_calculadora/controllers/calculator.dart';
 import 'package:imc_calculadora/controllers/constants.dart';
+import 'package:imc_calculadora/views/results_page.dart';
 import 'package:imc_calculadora/widgets/button_fuction.dart';
 import 'package:imc_calculadora/widgets/container_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -210,7 +212,16 @@ class _HomePageState extends State<HomePage> {
             ),
             ButtonFunction(
               onTap: () {
-                Navigator.pushNamed(context, '/result');
+                Calculator calc = Calculator(height: _height, weight: _weight);
+                //Navigator.pushNamed(context, '/result');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ResultPage(
+                              imcResult: calc.calculatorIMC(),
+                              textResult: calc.getResult(),
+                              interpretation: calc.getInterpretation(),
+                            )));
               },
               buttonTitle: 'CALCULAR',
             )
