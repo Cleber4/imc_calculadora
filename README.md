@@ -11,8 +11,7 @@ Aplicando os estudos do curso:
 Complete Flutter App Development Bootcamp with Dart - Dr. Angela Yu
 
 
-## Getting Started
+## Views screens
 
 ![HomePage](to_readme/1.png) 
-
 ![ResultPage](to_readme/2.jpg)
